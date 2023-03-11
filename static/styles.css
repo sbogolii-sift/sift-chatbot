@@ -1,0 +1,36 @@
+/* Center all content */
+body {
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+/* Set max-width for all content */
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+textarea {
+    font-size: 1.5em;
+    size: 100;
+    width: 100%;
+}
+
+input[type=submit] {
+   font-size: 1em;
+   height: 1.5em;
+}
+
+form {
+    margin-bottom: 1em;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+
+.chatbot_response {
+    font-style: italic;
+}

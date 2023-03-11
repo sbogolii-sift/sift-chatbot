@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sift Confluence Chatbot</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Sift Chatbot</h1>
+
+    <h3>Type your question:</h3>
+    <form action="/" method="post">
+        <!-- Text input -->
+        <textarea id="text_input" name="text_input" size="100"></textarea>
+        <input type="submit" value="Ask ">
+    </form>
+
+    <!-- Text output -->
+    {% if text_output %}
+    <p class="chatbot_response"><b>Chatbot:</b>{{ text_output }}</p>
+    {% endif %}
+</div>
+</body>
+</html>
