@@ -18,7 +18,7 @@ def main_page():
         text_input = request.form['text_input']
         text_output = process_text(text_input)
         print(text_output)
-        return render_template('index.html', text_output=text_output.replace('\n', '<br/>'))
+        return render_template('index.html', text_output=text_output)
     return render_template('index.html')
 
 
