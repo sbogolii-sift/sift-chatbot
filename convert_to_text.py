@@ -53,7 +53,7 @@ def ul_table_to_text(ul, prefix=''):
                         previous_element_name = f'{prefix} {headers[cellIndex]}'
                         rows.append(
                             f'\n{prefix} {headers[cellIndex]} for {headers[0]} {key} - '
-                            f'{li_to_text(cell)}\n')
+                            f'{li_to_text(cell)}')
                     cellIndex += 1
             else:
                 cellIndex = 0
@@ -64,7 +64,7 @@ def ul_table_to_text(ul, prefix=''):
                     else:
                         previous_element_name = f'{prefix} {key}'
                         rows.append(f'\n{prefix} {key} - ' +
-                                    f'{li_to_text(cell)}\n')
+                                    f'{li_to_text(cell)}')
                     cellIndex += 1
 
         rowIndex += 1
