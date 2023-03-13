@@ -57,8 +57,8 @@ def ul_table_to_text(ul, prefix=''):
                             continue
                         previous_element_name = f'{prefix} {headers[cellIndex]}'
                         rows.append(
-                            f'---\nKEY\n{prefix} {headers[cellIndex]} for {headers[0]} {key}\n'
-                            f'VALUE\n{li_to_text(cell)}\n---')
+                            f'\n{prefix} {headers[cellIndex]} for {headers[0]} {key} - '
+                            f'{li_to_text(cell)}\n')
                     cellIndex += 1
             else:
                 cellIndex = 0
@@ -68,8 +68,8 @@ def ul_table_to_text(ul, prefix=''):
                         key = cell.get_text(strip=True, separator=' ')
                     else:
                         previous_element_name = f'{prefix} {key}'
-                        rows.append(f'---\nKEY\n{prefix} {key}\n' +
-                                    f'VALUE\n{li_to_text(cell)}\n---')
+                        rows.append(f'\n{prefix} {key} - ' +
+                                    f'{li_to_text(cell)}\n')
                     cellIndex += 1
 
         rowIndex += 1
@@ -81,11 +81,10 @@ def ul_table_to_text(ul, prefix=''):
 
     return list_text
 
-
 def code_to_text(div):
     list_of_code_snippets = []
     for element in div.find_all('pre'):
-        text = '---\nCODE\n'
+        text = '\n---'
         if 'curl' in element.attrs['class']:
             text += 'Curl'
         elif 'java' in element.attrs['class']:
@@ -98,7 +97,7 @@ def code_to_text(div):
             text += 'PHP'
         else:
             text += 'Unrecognized Language'
-        text += f'\nVALUE\n{element.get_text()}\n---'
+        text += f'\n{element.get_text()}\n---'
         list_of_code_snippets.append(text)
     return '\n\n'.join(list_of_code_snippets)
 

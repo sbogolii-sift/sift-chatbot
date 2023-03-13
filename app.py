@@ -8,9 +8,8 @@ app = Flask(__name__, template_folder=os.path.join(ROOT_DIR, 'templates'),
             static_folder=os.path.join(ROOT_DIR, 'static'))
 model = GPT2LMHeadModel.from_pretrained('./gpt2_sift_api')
 
-finetuned_generator = pipeline(
-    'text-generation', model=model, tokenizer='gpt2',
-    config={'max_length': 300, 'do_sample': True, 'top_p': 0.9, 'temperature': 0.7, 'top_k': 10})
+generator = pipeline(
+    'text-generation', model=model, tokenizer='gpt2')
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -24,7 +23,7 @@ def main_page():
 
 
 def process_text(query):
-    return finetuned_generator(query, num_return_sequences=1)[0]['generated_text']
+    return generator(query, max_length=50, num_return_sequences=1)[0]['generated_text']
 
 
 if __name__ == '__main__':
