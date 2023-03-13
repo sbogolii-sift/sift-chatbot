@@ -4,11 +4,6 @@ from bs4 import BeautifulSoup
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 file_path = 'api-reference.html'
-page_dir = os.path.join(ROOT_DIR, 'api-reference')
-
-if not os.path.exists(page_dir):
-    os.makedirs(page_dir)
-
 
 def li_to_text(li, level_separator=''):
     text = ''
@@ -127,7 +122,7 @@ with open(file_path, 'r') as f:
     contents = f.read()
     html_parse = BeautifulSoup(contents, 'html.parser')
     single_file_path = "api-reference.txt"
-    with open(single_file_path, "a", encoding="utf-8") as single_file:
+    with open(single_file_path, "w", encoding="utf-8") as single_file:
         for div in html_parse.find_all("div"):
             try:
                 firstElement = next(div.children)

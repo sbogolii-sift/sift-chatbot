@@ -9,7 +9,7 @@ h1, h2, h3 {
 }
 /* Set max-width for all content */
 .container {
-    max-width: 400px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -31,5 +31,9 @@ form {
 }
 
 .chatbot_response {
-    font-style: italic;
+    display: block;
+    font-family: monospace;
+    white-space: pre;
+    margin: 1em 0px;
+    max-width: 800px;
 }
